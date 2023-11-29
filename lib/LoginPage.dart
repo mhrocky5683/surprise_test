@@ -1,8 +1,5 @@
-// login_page.dart
-
 import 'package:flutter/material.dart';
 import 'search_page.dart'; // Import the next page
-import 'registration_page.dart'; // Import the registration page
 
 void main() {
   runApp(MyApp());
@@ -56,10 +53,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  // Action for "Forgot Password" button
   void _forgotPassword() {
-    // Implement the logic for password recovery
-    // For example, send a password reset email to the user
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -77,15 +71,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Action for "Create New Account" button
-  void _createNewAccount() {
-    // Navigate to the registration page
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RegistrationPage()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,61 +78,39 @@ class _LoginPageState extends State<LoginPage> {
         title: const Text('Login'),
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                'assets/background_image.jpg'), // Replace with the path to your background image asset
-            fit: BoxFit
-                .cover, // Make the image cover the entire screen without distortion
-          ),
-        ),
+        color: Colors.grey,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.start, // Align content at the top
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 32.0), // Add space at the top
-              Image.asset(
-                'assets/login.png', // Replace with the path to your image asset
-                height: 100, // Adjust the height as needed
-              ),
-              const SizedBox(
-                  height:
-                      32.0), // Increased margin between app name and welcome
+              const SizedBox(height: 32.0),
               const Text(
-                'Travel',
+                'Bus',
                 style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors
-                      .white, // Set text color to contrast with the background
-                ),
+                    fontSize: 36.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 255, 187, 187)),
               ),
-              const SizedBox(
-                  height:
-                      75.0), // Increased margin between app name and welcome
+              const SizedBox(height: 75.0),
               Container(
                 alignment: Alignment.centerLeft,
                 child: const Text(
                   'Welcome!',
-                  textAlign: TextAlign.center, // Center the text horizontally
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 36.0,
+                    fontSize: 32.0,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 255, 255, 255),
-                    
                   ),
                 ),
               ),
-              const SizedBox(
-                  height:
-                      32.0), // Increased margin between welcome and text fields
+              const SizedBox(height: 32.0),
               TextField(
                 controller: _usernameController,
                 decoration: const InputDecoration(
                   labelText: 'Username',
-                  fillColor: Colors.white, // Set text field background color
+                  fillColor: Colors.white,
                   filled: true,
                 ),
               ),
@@ -157,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
                 decoration: const InputDecoration(
                   labelText: 'Password',
-                  fillColor: Colors.white, // Set text field background color
+                  fillColor: Colors.white,
                   filled: true,
                 ),
               ),
@@ -166,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: _login,
                 child: const Text('Login'),
               ),
-              const SizedBox(height: 6.0),
+              const SizedBox(height: 16.0),
               TextButton(
                 onPressed: _forgotPassword,
                 child: Text(
@@ -176,7 +139,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 76.0),
               const Text(
                 "Don't have any account!",
@@ -187,10 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 6.0),
-              ElevatedButton(
-                onPressed: _createNewAccount,
-                child: const Text('Create New Account'),
-              ),
+              const Text('Create New Account'),
             ],
           ),
         ),
